@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "855700657734",
+    "firebase_url": "https://fir-tukka.firebaseio.com",
+    "project_id": "fir-tukka",
+    "storage_bucket": "fir-tukka.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855700657734:android:23becbd3ca2fce82",
+        "android_client_info": {
+          "package_name": "com.example.blood_bank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855700657734-lmid1df7pgjh0hq1ibr3868l54002ked.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blood_bank",
+            "certificate_hash": "fc30fcc0de9a4bb6acc44959ea9b843ed6a5693d"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfGkm5idd1S5kZvox5m-BwLSyOE6SWSsc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855700657734-lsne9l9ss90h3984j4r33ihq5kd9d2jk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
