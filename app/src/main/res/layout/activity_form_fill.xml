@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormFill"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text13"
+        android:text="Name  "
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text13"
+        android:id="@+id/take_name"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text14"
+        android:text="Blood Group "
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/take_name"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text14"
+        android:id="@+id/take_blood"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text15"
+        android:text="Mobile Number "
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+    android:layout_below="@id/take_blood"
+
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text15"
+        android:id="@+id/take_number"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/take_number"
+        android:layout_marginTop="20dp"
+        android:text="Submit"
+        android:id="@+id/submitDetails"
+        />
+
+</RelativeLayout>
