@@ -22,7 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 
 public class MainActivity extends AppCompatActivity {
     EditText email,password;
@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private  FirebaseAuth mAuth;
     String TAG= "";
     FirebaseAuth.AuthStateListener mAuthListener;
-    ProgressDialog mProgress;
+
+    private ProgressDialog mProgress;
     @Override
     protected void onStart() {
         super.onStart();
@@ -44,12 +45,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FirebaseApp.initializeApp(this);
          mAuth=FirebaseAuth.getInstance();
+        mProgress =new ProgressDialog(this);
+
 
          email =findViewById(R.id.login_email);
          password=findViewById(R.id.login_password);
          signin=findViewById(R.id.login_button);
 
-        mProgress =new ProgressDialog(this);
+
 
         TextView signup=findViewById(R.id.signup);
         signup.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
          signin.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
+
                  String email1= email.getText().toString();
                  String pass= password.getText().toString();
                  if(TextUtils.isEmpty(email1)){
@@ -72,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                              Toast.LENGTH_SHORT).show();
                      return;
                  }
+                 mProgress.setMessage("Please wait...");
+                 mProgress.show();
 
                  mAuth.signInWithEmailAndPassword(email1,pass).addOnCompleteListener(MainActivity.this,
                          new OnCompleteListener<AuthResult>() {
@@ -79,9 +85,11 @@ public class MainActivity extends AppCompatActivity {
                              public void onComplete(@NonNull Task<AuthResult> task) {
                                  if(task.isSuccessful()){
                                      Log.d(TAG,"signIn Success");
+                                     mProgress.dismiss();
                                      Intent intent =new Intent(MainActivity.this,HomePage.class);
                                      startActivity(intent);
                                      finish();
+
                                  }
                                  else {
                                      Log.d(TAG,"Signin: Fail");
@@ -95,12 +103,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
-                    Toast.makeText(MainActivity.this,"Success",Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(MainActivity.this,"",Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Intent i= new Intent(MainActivity.this,SignUpActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
+                    finish();
                 }
 
             }

@@ -1,8 +1,13 @@
 package com.example.blood_bank;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -49,10 +54,15 @@ public class SignUpActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mProgress.setMessage("Signing up...");
+                mProgress.setCancelable(false);
+                mProgress.show();
 
                 final String name= signup_name.getText().toString();
                 String email=signup_email.getText().toString();
                 String password=signup_pass.getText().toString();
+
+
 
                 if(TextUtils.isEmpty(name)){
                     Toast.makeText(getApplicationContext(),"Please enter your name",Toast.LENGTH_SHORT).show();
@@ -72,8 +82,7 @@ public class SignUpActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
-                                    mProgress.setMessage("Signing up...");
-                                    mProgress.show();
+
                                     String user_id= mAuth.getCurrentUser().getUid();
                                     Log.d(TAG,"CreateUserWithEmail: success");
                                     FirebaseUser user =mAuth.getCurrentUser();
@@ -81,9 +90,11 @@ public class SignUpActivity extends AppCompatActivity {
                                     mProgress.dismiss();
                                     current_user.child("name").setValue(name);
                                     Intent i= new Intent(SignUpActivity.this,FormFill.class);
-                                    //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(i);
+
+
                                 }else{
+                                    mProgress.dismiss();
                                     Log.w(TAG,"CreateUser: Failure",task.getException());
                                     Toast.makeText(SignUpActivity.this,"Authentication Failed",Toast.LENGTH_SHORT).show();
                                 }

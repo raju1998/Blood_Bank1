@@ -1,39 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpActivity"
     android:orientation="vertical"
+
     >
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/superlogoa"
+        android:id="@+id/superlogo"
+
+        />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_below="@+id/superlogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         android:id="@+id/signup_name"
+        android:background="@drawable/design1"
+        android:padding="20dp"
         />
     <EditText
+        android:layout_below="@+id/signup_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
+        android:padding="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:id="@+id/signup_email"
+        android:background="@drawable/design1"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
+        android:padding="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_below="@id/signup_email"
         android:id="@+id/signup_password"
         android:inputType="textPassword"
+        android:background="@drawable/design1"
         />
 
 
@@ -41,10 +56,11 @@
         android:id="@+id/signup_button"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="150dp"
-
+        android:layout_below="@+id/signup_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register"
+        android:background="@drawable/design_button"
         />
 
-</LinearLayout>
+</RelativeLayout>

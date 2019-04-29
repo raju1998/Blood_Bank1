@@ -4,10 +4,11 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/boder"
+    android:padding="10dp"
     >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
@@ -25,9 +26,9 @@
         android:layout_marginTop="5dp"
         />
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="135dp"
         android:layout_height="wrap_content"
-        android:text="Name            : "
+        android:text="Name             : "
         android:textSize="20sp"
         android:layout_below="@id/blood_group"
 
@@ -49,7 +50,7 @@
         android:layout_toEndOf="@id/name" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_name"
         android:id="@+id/mobile"
@@ -61,24 +62,67 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_name"
-        android:layout_toRightOf="@id/mobile"
-        android:textSize="20sp"
-        android:layout_marginTop="5dp"
         android:id="@+id/mobile_number"
-        />
-    <ImageView
-        android:layout_marginTop="5dp"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/phonicon"
+        android:textSize="20sp"
+        android:layout_toRightOf="@id/name"
         android:layout_below="@id/text_name"
-        android:layout_toRightOf="@id/mobile_number"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/name"
         android:clickable="true"
         android:focusable="true"
-        android:layout_marginStart="50dp"
-        android:layout_toEndOf="@id/mobile_number" />
+        >
+
+    </TextView>
+    <!--<ImageView-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:layout_width="25dp"-->
+        <!--android:layout_height="25dp"-->
+        <!--android:src="@drawable/phonicon"-->
+        <!--android:layout_below="@id/text_name"-->
+        <!--android:layout_toRightOf="@id/mobile_number"-->
+        <!--android:layout_marginLeft="150dp"-->
+        <!--android:clickable="true"-->
+        <!--android:focusable="true"-->
+        <!--android:layout_marginStart="50dp"-->
+        <!--android:layout_toEndOf="@id/mobile_number"-->
+        <!--android:id="@+id/phonecall"-->
+        <!--/>-->
+    <!--<ImageView-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:layout_width="25dp"-->
+        <!--android:layout_height="25dp"-->
+        <!--android:src="@drawable/ic_message_black_24dp"-->
+        <!--android:layout_below="@id/text_name"-->
+        <!--android:layout_toRightOf="@id/phonecall"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:clickable="true"-->
+        <!--android:focusable="true"-->
+        <!--android:layout_marginStart="50dp"-->
+        <!--android:id="@+id/do_message"-->
+        <!--android:layout_toEndOf="@id/phonecall" />-->
+
+    <TextView
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mobile"
+        android:id="@+id/location1"
+        android:text="Location        : "
+        android:textSize="20sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mobile_number"
+        android:layout_toRightOf="@id/location1"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/location"
+
+        />
 
 
 </RelativeLayout>

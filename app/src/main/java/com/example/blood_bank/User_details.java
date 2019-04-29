@@ -4,6 +4,15 @@ class User_details {
     private String _name;
     private String _BloodGroup;
     private String _number;
+    private  String _location;
+
+    public String get_location() {
+        return _location;
+    }
+
+    public void set_location(String _location) {
+        this._location = _location;
+    }
 
     String get_name() {
         return _name;

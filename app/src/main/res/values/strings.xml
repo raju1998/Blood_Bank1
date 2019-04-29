@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Blood_Bank</string>
+    <string name="app_name">Blood Bank</string>
+    <string name="title_activity_doner_home_page">Doner_home_page</string>
+    <string name="open">Doner_home_page</string>
+    <string name="close">Doner_home_page</string>
+    <string name="nav_header_title">Save a Life</string>
+    <string name="nav_header_subtitle">Give Blood</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 </resources>
