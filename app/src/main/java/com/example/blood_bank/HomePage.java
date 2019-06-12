@@ -50,6 +50,8 @@ public class HomePage extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     FirebaseDatabase database;
     private DatabaseReference myref;
+    FirebaseAuth mAuth;
+
 
     FirebaseAuth.AuthStateListener mAuthListener;
     RecyclerView recyclerView;
@@ -64,11 +66,13 @@ public class HomePage extends AppCompatActivity {
         recyclerView=findViewById(R.id.recyler_view);
         drawerLayout=findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        mAuth=FirebaseAuth.getInstance();
+
 
         toolbar=findViewById(R.id.toolbar_nav);
         setSupportActionBar(toolbar);
 
-        actionBarDrawerToggle=new ActionBarDrawerToggle(HomePage.this,drawerLayout,R.string.open,R.string.close);
+        actionBarDrawerToggle=new ActionBarDrawerToggle(HomePage.this,drawerLayout,R.string.open, R.string.close);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -133,13 +137,18 @@ public class HomePage extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_logout:
-
                                 Intent i= new Intent(HomePage.this,MainActivity.class);
                                 startActivity(i);
                                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 finish();
                                 break;
                     case R.id.nav_aboutus:
+                                Intent i1=new Intent(HomePage.this,AboutUs.class);
+                                startActivity(i1);
+                                i1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                finish();
+                                break;
+
 
                 }
 

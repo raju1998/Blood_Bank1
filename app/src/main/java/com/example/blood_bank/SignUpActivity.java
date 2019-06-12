@@ -29,7 +29,7 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private static final String TAG= "";
     EditText signup_email,signup_pass,signup_name;
-    Button register;
+    Button register, login;
 
     private ProgressDialog mProgress;
 
@@ -51,6 +51,8 @@ public class SignUpActivity extends AppCompatActivity {
         signup_pass=findViewById(R.id.signup_password);
         register=findViewById(R.id.signup_button);
 
+
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,15 +68,18 @@ public class SignUpActivity extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(name)){
                     Toast.makeText(getApplicationContext(),"Please enter your name",Toast.LENGTH_SHORT).show();
+                    mProgress.dismiss();
                     return;
                 }
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(getApplicationContext(),"Please enter email id",Toast.LENGTH_SHORT).show();
+                    mProgress.dismiss();
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
                     Toast.makeText(getApplicationContext(),"Enter Password",
                             Toast.LENGTH_SHORT).show();
+                    mProgress.dismiss();
                     return;
                 }
                 mAuth.createUserWithEmailAndPassword(email,password)

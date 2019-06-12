@@ -1,5 +1,6 @@
 package com.example.blood_bank;
 
+
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -7,15 +8,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
 import com.google.firebase.database.DatabaseReference;
@@ -43,6 +47,7 @@ public class FormFill extends AppCompatActivity {
         number=findViewById(R.id.take_number);
         location=findViewById(R.id.take_city);
 
+
         database=FirebaseDatabase.getInstance();
         myref=database.getReference("message");
         submit=findViewById(R.id.submitDetails);
@@ -53,10 +58,30 @@ public class FormFill extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String uname= name.getText().toString();
                 String ublood=blood;
                 String unumber=number.getText().toString();
                 String ulocation=location.getText().toString();
+                if(TextUtils.isEmpty(uname)){
+                    Toast.makeText(getApplicationContext(),"Please enter your name",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(TextUtils.isEmpty(ublood)){
+                    Toast.makeText(getApplicationContext(),"Please select your blood group",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(TextUtils.isEmpty(unumber)){
+                    Toast.makeText(getApplicationContext(),"Enter number",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(TextUtils.isEmpty(ulocation)){
+                    Toast.makeText(getApplicationContext(),"Enter location",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 String key=myref.push().getKey();
                 User_details user_details=new User_details();
 

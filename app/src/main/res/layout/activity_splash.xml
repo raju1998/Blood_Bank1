@@ -8,8 +8,27 @@
     android:background="@drawable/custom_background_gradient"
     >
 
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="200dp"
+    android:layout_marginTop="150dp"
+    android:src="@drawable/superlogoa"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/xcv"
+    />
 
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@+id/xcv"
+    android:textSize="30sp"
+    android:textStyle="bold"
+    android:textColor="#212121"
+    android:text="BLOOD BANK APP"
+    android:id="@+id/splashtext"
 
-
+    />
 
 </RelativeLayout>

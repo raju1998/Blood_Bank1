@@ -2,6 +2,7 @@ package com.example.blood_bank;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -65,7 +66,7 @@ public class ReceiverHomePage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot==null)
                 {
-                    Toast.makeText(ReceiverHomePage.this,"nahi Hua",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ReceiverHomePage.this,"Some Error",Toast.LENGTH_SHORT).show();
                 }
                 list=new ArrayList<>();
                 for (DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
@@ -92,12 +93,21 @@ public class ReceiverHomePage extends AppCompatActivity {
         recycler.setLayoutManager(layoutManager);
         //recyclerView.setItemAnimator(new DefaultItemAnimator());
         recycler.setAdapter(recyclerviewAdapter);
+
+
     }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(ReceiverHomePage.this,"nahi Hua",Toast.LENGTH_SHORT).show();
+                Toast.makeText(ReceiverHomePage.this,"Some Error",Toast.LENGTH_SHORT).show();
             }
         });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(ReceiverHomePage.this,donerandreciver.class));
     }
 }

@@ -93,13 +93,14 @@ public class MainActivity extends AppCompatActivity {
                                  }
                                  else {
                                      Log.d(TAG,"Signin: Fail");
+                                     mProgress.dismiss();
                                      Toast.makeText(MainActivity.this," Failed",Toast.LENGTH_SHORT).show();
                                  }
                              }
                          });
              }
          });
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+       mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
@@ -119,5 +120,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(MainActivity.this,donerandreciver.class));
+    }
 }
